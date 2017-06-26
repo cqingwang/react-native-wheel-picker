@@ -1,6 +1,6 @@
 {
-  "name": "@cqingwang/react-native-wheel-picker",
-  "version": "1.0.0",
+  "name": "react-native-wheel-picker",
+  "version": "1.1.1",
   "description": "React native cross platform picker.",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "keywords": [
     "react-native",
     "picker",
-	"wheel"
+    "wheel"
   ],
   "author": "Yu Zheng",
   "license": "ISC",
