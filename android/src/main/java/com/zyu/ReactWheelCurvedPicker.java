@@ -26,7 +26,7 @@ import java.util.List;
 public class ReactWheelCurvedPicker extends WheelCurvedPicker {
 
     private final EventDispatcher mEventDispatcher;
-    private List<Integer> mValueData;
+    private List<String> mValueData;
 
     public ReactWheelCurvedPicker(ReactContext reactContext) {
         super(reactContext);
@@ -57,7 +57,7 @@ public class ReactWheelCurvedPicker extends WheelCurvedPicker {
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
         int colorFrom = 0x00FFFFFF;//Color.BLACK;
-        int colorTo = Color.WHITE;
+        int colorTo = Color.BLACK;
         LinearGradient linearGradientShader = new LinearGradient(rectCurItem.left, rectCurItem.top, rectCurItem.right/2, rectCurItem.top, colorFrom, colorTo, Shader.TileMode.MIRROR);
         paint.setShader(linearGradientShader);
         canvas.drawLine(rectCurItem.left, rectCurItem.top, rectCurItem.right, rectCurItem.top, paint);
@@ -71,7 +71,7 @@ public class ReactWheelCurvedPicker extends WheelCurvedPicker {
 		mHandler.post(this);
     }
 
-    public void setValueData(List<Integer> data) {
+    public void setValueData(List<String> data) {
         mValueData = data;
     }
 
@@ -84,9 +84,9 @@ class ItemSelectedEvent extends Event<ItemSelectedEvent> {
 
     public static final String EVENT_NAME = "wheelCurvedPickerPageSelected";
 
-    private final int mValue;
+    private final String mValue;
 
-    protected ItemSelectedEvent(int viewTag,  int value) {
+    protected ItemSelectedEvent(int viewTag,  String value) {
         super(viewTag);
         mValue = value;
     }
@@ -103,7 +103,7 @@ class ItemSelectedEvent extends Event<ItemSelectedEvent> {
 
     private WritableMap serializeEventData() {
         WritableMap eventData = Arguments.createMap();
-        eventData.putInt("data", mValue);
+        eventData.putString("data", mValue);
         return eventData;
     }
 }
